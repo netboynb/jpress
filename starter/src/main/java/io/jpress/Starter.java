@@ -29,5 +29,4 @@ public class Starter {
         JbootApplication.setBootArg("undertow.resourcePath", "classpath:webapp");
         JbootApplication.run(args);
     }
-
 }
