@@ -20,7 +20,7 @@
 <body>
 <div class="cl-header container-fluid">
     <div class="header-content container">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar-nav  navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="#(CPATH)#(SPATH)/">
                 <img src="#option('calmlog_logo','img/default-img.png')" width="100" alt="DestyClub">
             </a>
@@ -34,7 +34,7 @@
                 <!-- 头像信息 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="javascript:;" style="display: flex;align-items: center">
-                        <img src="#(USER.avatar ?? 'img/avatar.png')" class="img-circle" style="width:30px;height: 30px">
+                        <img src="#(USER.avatar ?? 'img/avatar.png')" class="img-circle" style="width:45px;height: 45px">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
 
@@ -82,7 +82,7 @@
 
 <div class="container-fluid cl-footer">
     <div class="container">
-        #(WEB_COPYRIGHT ? WEB_COPYRIGHT : ' <br/> copyright @ 2020~2022 DestyClub® （www.destyclub.com）')
+        #(WEB_COPYRIGHT ? WEB_COPYRIGHT : ' <br/> copyright @ 2020~2022 DestyClub® （www.desty.club）')
     </div>
 </div>
 <script src="#(CPATH)/static/components/jquery/jquery.min.js"></script>
