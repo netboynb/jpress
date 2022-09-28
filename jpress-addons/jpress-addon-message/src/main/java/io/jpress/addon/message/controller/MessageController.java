@@ -18,6 +18,10 @@ public class MessageController extends JbootController{
     @Inject
     private JpressAddonMessageService service;
 
+    public void index() {
+        render("views/index.html");
+    }
+
     public void doSave() {
 
         JpressAddonMessage entry = getModel(JpressAddonMessage.class);

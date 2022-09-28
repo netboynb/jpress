@@ -130,12 +130,17 @@
         </dependency>
 
 
-<!--        <dependency>-->
-<!--            <groupId>io.jpress</groupId>-->
-<!--            <artifactId>jpress-addon-keygen</artifactId>-->
-<!--            <version>5.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>io.jpress</groupId>
+            <artifactId>jpress-addon-message</artifactId>
+            <version>5.0</version>
+        </dependency>
 
+        <dependency>
+            <groupId>io.jpress</groupId>
+            <artifactId>jpress-addon-helloworld</artifactId>
+            <version>5.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -199,9 +204,12 @@
                                 <resource>
                                     <directory>${basedir}/../module-form/module-form-web/src/main/webapp</directory>
                                 </resource>
-<!--                                <resource>-->
-<!--                                    <directory>${basedir}/../jpress-addons/jpress-addon-keygen/src/main/webapp</directory>-->
-<!--                                </resource>-->
+                                <resource>
+                                    <directory>${basedir}/../jpress-addons/jpress-addon-message/src/main/webapp</directory>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/../jpress-addons/jpress-addon-helloworld/src/main/webapp</directory>
+                                </resource>
                             </resources>
                         </configuration>
                     </execution>
