@@ -771,6 +771,8 @@ a.card-link:hover .cl-card-main-title {
 .job-right-title-group a{
     font-size:14px;
 }
-
+.img-circle{
+    border-radius:50%
+}
 
 
