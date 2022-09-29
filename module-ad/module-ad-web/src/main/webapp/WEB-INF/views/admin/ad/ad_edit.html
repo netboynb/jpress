@@ -1,0 +1,127 @@
+#@layout()
+
+#define content()
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="row mb-2">
+                        <div class="col-sm-12">
+                            <h1>
+                                编辑/新增
+                                <small data-toggle="tooltip" title="" data-placement="right"
+                                       data-trigger="hover"><i class="nav-icon far fa-question-circle"></i></small>
+                                <small> 首页 / 广告 / 编辑</small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-outline card-primary">
+                    <form class=" form-setting autoAjaxSubmit" autocomplete="off"
+                          action="/admin/ad/ad/doSave"
+                          ok-function-href="/admin/ad/ad/list"
+                          method="POST">
+
+                        <div class="card-body ">
+	                                <input type="hidden" id="entryId" name="ad.id" value="#(ad.id ??)">
+		                            <div class="form-group row">
+		                                <label class="col-sm-2 col-form-label">广告名称</label>
+		                                <div class="col-sm-6">
+
+										   <input type="input" name="ad.ad_title" class="form-control" value="#(ad.ad_title ??)"
+		                                           placeholder="">
+		                                </div>
+		                            </div>
+		                            <div class="form-group row">
+		                                <label class="col-sm-2 col-form-label">广告图片链接</label>
+		                                <div class="col-sm-6">
+
+										   <input type="input" name="ad.ad_img" class="form-control" value="#(ad.ad_img ??)"
+		                                           placeholder="">
+		                                </div>
+		                            </div>
+		                            <div class="form-group row">
+		                                <label class="col-sm-2 col-form-label">广告跳转链接</label>
+		                                <div class="col-sm-6">
+
+										   <input type="input" name="ad.ad_target" class="form-control" value="#(ad.ad_target ??)"
+		                                           placeholder="">
+		                                </div>
+		                            </div>
+		                            <!--<div class="form-group row">-->
+		                                <!--<label class="col-sm-2 col-form-label">广告创建者</label>-->
+		                                <!--<div class="col-sm-6">-->
+
+										   <!--<input type="input" name="ad.creator" class="form-control" value="#(ad.creator ??)"-->
+		                                           <!--placeholder="">-->
+		                                <!--</div>-->
+		                            <!--</div>-->
+		                            <!--<div class="form-group row">-->
+		                                <!--<label class="col-sm-2 col-form-label">广告创建时间</label>-->
+		                                <!--<div class="col-sm-6">-->
+
+										    <!--<input type="input" class="form-control datetime" placeholder="点击选择"-->
+		                       						<!--name="ad.create_time" value="#date(ad.create_time ?? now,'yyyy-MM-dd')" >-->
+		                                <!--</div>-->
+		                            <!--</div>-->
+		                            <!--<div class="form-group row">-->
+		                                <!--<label class="col-sm-2 col-form-label">广告更新时间</label>-->
+		                                <!--<div class="col-sm-6">-->
+
+										    <!--<input type="input" class="form-control datetime" placeholder="点击选择"-->
+		                       						<!--name="ad.update_time" value="#date(ad.update_time ?? now,'yyyy-MM-dd')" >-->
+		                                <!--</div>-->
+		                            <!--</div>-->
+		                            <div class="form-group row">
+		                                <label class="col-sm-2 col-form-label">开始时间</label>
+		                                <div class="col-sm-6">
+
+										    <input type="input" class="form-control datetime" placeholder="点击选择"
+		                       						name="ad.start_time" value="#date(ad.start_time ?? now,'yyyy-MM-dd')" >
+		                                </div>
+		                            </div>
+		                            <div class="form-group row">
+		                                <label class="col-sm-2 col-form-label">截止时间</label>
+		                                <div class="col-sm-6">
+
+										    <input type="input" class="form-control datetime" placeholder="点击选择"
+		                       						name="ad.end_time" value="#date(ad.end_time ?? now,'yyyy-MM-dd')" >
+		                                </div>
+		                            </div>
+		                            <div class="form-group row">
+		                                <label class="col-sm-2 col-form-label">优先级</label>
+		                                <div class="col-sm-6">
+
+										   <input type="input" name="ad.ad_index" class="form-control" value="#(ad.ad_index ??)"
+		                                           placeholder="">
+		                                </div>
+		                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <div class="offset-sm-2 col-sm-10 submit-block">
+                                <div class="card-submit">
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+#end

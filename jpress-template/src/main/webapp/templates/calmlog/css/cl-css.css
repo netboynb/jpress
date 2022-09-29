@@ -236,6 +236,18 @@ a.card-link:hover .cl-card-main-title {
     padding-right: 0;
 }
 
+/*right*/
+.cl-right-fixed {
+    margin: 100px 0;
+    /*padding-right: 0;*/
+    position: fixed;
+    right: 30px;
+    /*bottom: 10px;*/
+    /*top:30px;*/
+    width: 100px;
+    margin-top: 0px;
+}
+
 .right-card-main {
     background-color: #fff;
     margin: 0 0 20px 0;

@@ -93,7 +93,7 @@ public class ArticleModuleInitializer extends ModuleBase {
         MenuGroup menuGroup = new MenuGroup();
         menuGroup.setId("article");
         menuGroup.setText("文章");
-        menuGroup.setIcon("<i class=\"fas fa-edit\"></i>");
+        menuGroup.setIcon("<i class=\"fas fa-cloud\"></i>");
         menuGroup.setOrder(1);
 
         adminMenus.add(menuGroup);

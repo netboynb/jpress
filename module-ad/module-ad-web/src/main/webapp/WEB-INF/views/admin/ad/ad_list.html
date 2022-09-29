@@ -1,0 +1,116 @@
+#@layout()
+
+#define script()
+<script>
+
+    function doDel(id) {
+        ajaxGet("/admin/ad/ad/doDel/" + id);
+    }
+
+</script>
+#end
+
+#define content()
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row mb-2">
+                        <div class="col-sm-12">
+                            <h1>
+                                管理
+                                <small data-toggle="tooltip" title="" data-placement="right"
+                                       data-trigger="hover"><i class="nav-icon far fa-question-circle"></i></small>
+                                <small> 首页 / 广告 / 管理</small>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-outline card-primary">
+                    <div class="card-header with-border">
+
+                        <div class="row admin-search-panel">
+                            <div class="col-12">
+                                <a href="ad/edit" class="btn btn-primary ">
+                                    <i class="fas fa-plus"></i> 新建
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body ">
+
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <th style="width: 10px">
+	                                    <input class="tableCheckAll" type="checkbox"/>
+	                                </th>
+	                                <th></th>
+	                                <th>广告名称</th>
+	                                <th>广告图片链接</th>
+	                                <th>广告跳转链接</th>
+	                                <th>广告创建者</th>
+	                                <th>广告创建时间</th>
+	                                <th>广告更新时间</th>
+	                                <th>广告开始时间</th>
+	                                <th>广告截止时间</th>
+	                                <th>排序优先级，0最高</th>
+
+                            </tr>
+                            #for(entry : page.list)
+                            <tr>
+                                <td><input name="tableItem" type="checkbox" value="#(entry.id)" />
+                                </td>
+                                <td>
+                                    <strong>
+                                        <a href="#(CPATH)/admin/ad/ad/edit/#(entry.id)"> #(entry.id ??) </a>
+                                    </strong>
+                                    <div class="jp-action-card">
+                                        <div class="jp-action-body">
+                                            <a href="/admin/ad/ad/edit/#(entry.id)">编辑</a> |
+                                            <a href="javascript:;" class="red-action"
+                                               onclick="doDel('#(entry.id)')">删除</a>
+                                        </div>
+                                    </div>
+                                </td>
+
+	                                <td>#(entry.ad_title)</td>
+	                                <td>#(entry.ad_img)</td>
+	                                <td>#(entry.ad_target)</td>
+	                                <td>#(entry.creator)</td>
+	                                <td>#(entry.create_time)</td>
+	                                <td>#(entry.update_time)</td>
+	                                <td>#(entry.start_time)</td>
+	                                <td>#(entry.end_time)</td>
+	                                <td>#(entry.ad_index)</td>
+                            </tr>
+                            #end
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-12">
+                            	 #@_paginate()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+
+    </section>
+#end

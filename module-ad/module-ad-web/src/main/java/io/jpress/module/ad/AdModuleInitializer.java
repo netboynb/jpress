@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jpress.module.job;
+package io.jpress.module.ad;
 
 import com.jfinal.aop.Aop;
 import com.jfinal.core.Controller;
+import io.jboot.core.listener.JbootAppListenerBase;
 import io.jboot.db.model.Columns;
 import io.jboot.utils.DateUtil;
 import io.jpress.core.menu.MenuGroup;
-import io.jpress.core.module.ModuleBase;
-import io.jpress.module.job.model.Job;
-import io.jpress.module.job.service.JobService;
+import io.jpress.core.module.ModuleListener;
+import io.jpress.module.ad.model.Ad;
+import io.jpress.module.ad.service.AdService;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -32,22 +33,20 @@ import java.util.List;
  * @version V1.0
  * @Title: Module 监听器
  * @Description: 每个 module 都应该有这样的一个监听器，用来配置自身Module的信息，比如后台菜单等
- * @Package io.jpress.module.job
+ * @Package io.jpress.module.ad
  */
-public class JobModuleInitializer extends ModuleBase {
-
+public class AdModuleInitializer extends JbootAppListenerBase implements ModuleListener {
 
 
     @Override
     public String onRenderDashboardBox(Controller controller) {
-
         Integer date = controller.getParaToInt("date");
 
         Columns columns = new Columns();
 
         //如果是今天
         if(date !=null && date == 0){
-            columns.between("created", DateUtil.getStartOfDay(new Date()), DateUtil.getEndOfDay(new Date()));
+            columns.between("create_time", DateUtil.getStartOfDay(new Date()), DateUtil.getEndOfDay(new Date()));
         }else if(date != null && date > 0 && date < 29) {
             //最多就让查 28 天
             //创建日历类对象
@@ -59,27 +58,31 @@ public class JobModuleInitializer extends ModuleBase {
             //设置当前时间 加 几天
             calendar.add(Calendar.DATE, -date);
 
-            columns.between("created", DateUtil.getStartOfDay(calendar.getTime()), DateUtil.getStartOfDay(new Date()));
+            columns.between("create_time", DateUtil.getStartOfDay(calendar.getTime()), DateUtil.getStartOfDay(new Date()));
 
         }
 
+        columns.eq("ad_status",1);
+        List<Ad> adList = Aop.get(AdService.class).findListByColumns(columns,"create_time desc",5);
+        controller.setAttr("adList",adList);
+        return "ad/_dashboard_box.html";
+    }
 
-        List<Job> jobList = Aop.get(JobService.class).findListByColumns(columns,"created desc",5);
-        controller.setAttr("jobList",jobList);
-
-        return "job/_dashboard_box.html";
+    @Override
+    public String onRenderToolsBox(Controller controller) {
+        return null;
     }
 
     @Override
     public void onConfigAdminMenu(List<MenuGroup> adminMenus) {
 		MenuGroup menuGroup = new MenuGroup();
-        menuGroup.setId("job");
-        menuGroup.setText("招聘");
-        menuGroup.setIcon("<i class=\"fa fa-suitcase\"></i>");
-        menuGroup.setOrder(4);
+        menuGroup.setId("ad");
+        menuGroup.setText("广告");
+        menuGroup.setIcon("<i class=\"fas fa-car\"></i>");
+        menuGroup.setOrder(8);
         adminMenus.add(menuGroup);
     }
 
+
+
 }
-
-
