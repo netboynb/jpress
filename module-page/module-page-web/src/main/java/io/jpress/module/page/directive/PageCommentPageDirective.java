@@ -55,7 +55,7 @@ public class PageCommentPageDirective extends JbootDirectiveBase {
             }
         }
 
-        int pageSize = getParaToInt("pageSize", scope, 10);
+        int pageSize = getParaToInt("pageSize", scope, 20);
 
         Controller controller = JbootControllerContext.get();
         SinglePage singlePage = controller.getAttr("page");

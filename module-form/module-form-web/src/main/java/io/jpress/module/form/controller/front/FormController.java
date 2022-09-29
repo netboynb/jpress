@@ -175,7 +175,7 @@ public class FormController extends TemplateControllerBase {
         }
 
 
-        int maxSize = JPressOptions.getAsInt("attachment_img_maxsize", 10);
+        int maxSize = JPressOptions.getAsInt("attachment_img_maxsize", 20);
         int fileSize = Math.round(file.length() / 1024 * 100) / 100;
         if (maxSize > 0 && fileSize > maxSize * 1024) {
             FileUtil.delete(uploadFile.getFile());

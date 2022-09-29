@@ -65,7 +65,7 @@ public class ProductApiController extends ApiControllerBase {
     public Ret listByFlag(@ApiPara("产品标识 flag") String flag
             , @ApiPara(value = "是否必须要图片", notes = "true 必须有图片，false 必须无图片") Boolean hasThumbnail
             , @ApiPara("排序方式") String orderBy
-            , @ApiPara("查询数量") @DefaultValue("10") int count) {
+            , @ApiPara("查询数量") @DefaultValue("20") int count) {
 
         Columns columns = Columns.create("flag", flag);
         if (hasThumbnail != null) {
@@ -92,7 +92,7 @@ public class ProductApiController extends ApiControllerBase {
     @ApiPara("商品搜索")
     public Ret search(@ApiPara("关键字") String keyword
             , @ApiPara("分页页码") @DefaultValue("1") int pageNumber
-            , @ApiPara("每页数量") @DefaultValue("10") int pageSize) {
+            , @ApiPara("每页数量") @DefaultValue("20") int pageSize) {
         Page<Product> dataPage = StrUtil.isNotBlank(keyword)
                 ? productService.search(keyword, pageNumber, pageSize)
                 : null;

@@ -42,7 +42,7 @@ public class CommentsDirective extends JbootDirectiveBase {
     public void onRender(Env env, Scope scope, Writer writer) {
 
         String orderBy = getPara("orderBy", scope, "id desc");
-        int count = getParaToInt("count", scope, 10);
+        int count = getParaToInt("count", scope, 20);
 
         Columns columns = Columns.create("status", ArticleComment.STATUS_NORMAL);
         List<ArticleComment> comments = service.findListByColumns(columns, orderBy, count);

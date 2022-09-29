@@ -42,7 +42,7 @@ public class TagsDirective extends JbootDirectiveBase {
     public void onRender(Env env, Scope scope, Writer writer) {
 
         String orderBy = getPara("orderBy", scope, "id desc");
-        int count = getParaToInt("count", scope, 10);
+        int count = getParaToInt("count", scope, 20);
 
         List<ArticleCategory> categories = categoryService.findTagList(orderBy, count);
         if (categories == null || categories.isEmpty()) {

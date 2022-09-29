@@ -46,7 +46,7 @@ public class ProductSearchPageDirective extends JbootDirectiveBase {
 
         String keyword = controller.getAttr("keyword");
         int page = controller.getAttr("page");
-        int pageSize = getParaToInt("pageSize", scope, 10);
+        int pageSize = getParaToInt("pageSize", scope, 20);
 
         Page<Product> dataPage = StrUtil.isNotBlank(keyword)
                 ? productService.search(keyword, page, pageSize)

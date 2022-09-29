@@ -56,7 +56,7 @@ public class UserArticlesDirective extends JbootDirectiveBase {
 
         String orderBy = getPara("orderBy", scope, "id desc");
         String status = getPara("status", scope, Article.STATUS_NORMAL);
-        int count = getParaToInt("count", scope, 10);
+        int count = getParaToInt("count", scope, 20);
         Boolean withRecommend = getParaToBool("withRecommend", scope);
         Boolean withTop = getParaToBool("withTop", scope);
         Boolean withHot = getParaToBool("withHot", scope);

@@ -64,7 +64,7 @@ public class ArticleUCenterController extends UcenterControllerBase {
     public void index() {
 
         User loginedUser = getLoginedUser();
-        Page<Article> page = articleService._paginateByUserId(getPagePara(), 10, loginedUser.getId());
+        Page<Article> page = articleService._paginateByUserId(getPagePara(), 20, loginedUser.getId());
         setAttr("page", page);
 
         render("article/article_list.html");
@@ -254,7 +254,7 @@ public class ArticleUCenterController extends UcenterControllerBase {
 
     @UCenterMenu(text = "文章评论", groupId = "comment", order = 0, icon = "<i class=\"fas fa-comment\"></i>")
     public void comment() {
-        Page<ArticleComment> page = commentService._paginateByUserId(getPagePara(), 10, getLoginedUser().getId());
+        Page<ArticleComment> page = commentService._paginateByUserId(getPagePara(), 20, getLoginedUser().getId());
         setAttr("page", page);
         render("article/comment_list.html");
     }

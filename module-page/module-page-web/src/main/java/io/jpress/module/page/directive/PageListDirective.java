@@ -47,7 +47,7 @@ public class PageListDirective extends JbootDirectiveBase {
         TemplateControllerBase controller = (TemplateControllerBase) JbootControllerContext.get();
 
         int page = controller.getPageNumber();
-        int pageSize = getParaToInt("pageSize", scope, 10);
+        int pageSize = getParaToInt("pageSize", scope, 20);
         String orderBy = getPara("orderBy", scope, "id desc");
 
         // 可以指定当前的分类ID

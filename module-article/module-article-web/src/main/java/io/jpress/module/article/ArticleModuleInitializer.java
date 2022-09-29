@@ -72,11 +72,11 @@ public class ArticleModuleInitializer extends ModuleBase {
 
         }
 
-        List<Article> articles = Aop.get(ArticleService.class).findListByColumns(columns, "id desc", 10);
+        List<Article> articles = Aop.get(ArticleService.class).findListByColumns(columns, "id desc", 20);
         controller.setAttr("articles", articles);
 
         ArticleCommentService commentService = Aop.get(ArticleCommentService.class);
-        List<ArticleComment> articleComments = commentService.findListByColumns(Columns.create().eq("status", Article.STATUS_NORMAL), "id desc", 10);
+        List<ArticleComment> articleComments = commentService.findListByColumns(Columns.create().eq("status", Article.STATUS_NORMAL), "id desc", 20);
         controller.setAttr("articleComments", articleComments);
 
         return "article/_dashboard_box.html : right";

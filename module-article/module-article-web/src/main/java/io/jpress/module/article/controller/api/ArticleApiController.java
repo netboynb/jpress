@@ -82,7 +82,7 @@ public class ArticleApiController extends ApiControllerBase {
     public Ret paginate(@ApiPara("文章分类ID") Long categoryId
             , @ApiPara("排序方式") String orderBy
             , @ApiPara("分页的页码") @DefaultValue("1") int pageNumber
-            , @ApiPara("每页的数据数量") @DefaultValue("10") int pageSize) {
+            , @ApiPara("每页的数据数量") @DefaultValue("20") int pageSize) {
         Page<Article> page = categoryId == null
                 ? articleService.paginateInNormal(pageNumber, pageSize, orderBy)
                 : articleService.paginateByCategoryIdInNormal(pageNumber, pageSize, categoryId, orderBy);
@@ -101,7 +101,7 @@ public class ArticleApiController extends ApiControllerBase {
     @ApiOper("根据文章分的ID查找文章列表")
     @ApiResp(field = "list", notes = "文章列表", dataType = List.class, genericTypes = Article.class)
     public Ret listByCategoryId(@ApiPara("文章分类ID") @NotNull Long categoryId
-            , @ApiPara("查询数量") @DefaultValue("10") int count) {
+            , @ApiPara("查询数量") @DefaultValue("20") int count) {
         List<Article> articles = articleService.findListByCategoryId(categoryId, null, "id desc", count);
         return Ret.ok().set("list", articles);
     }
@@ -117,7 +117,7 @@ public class ArticleApiController extends ApiControllerBase {
     @ApiOper("根据文章分类的固定连接查找文章列表")
     @ApiResp(field = "list", notes = "文章列表", dataType = List.class, genericTypes = Article.class)
     public Ret listByCategorySlug(@ApiPara("分类的固定连接") @NotEmpty String categorySlug
-            , @ApiPara("查询数量") @DefaultValue("10") int count) {
+            , @ApiPara("查询数量") @DefaultValue("20") int count) {
         ArticleCategory category = categoryService.findFirstByTypeAndSlug(ArticleCategory.TYPE_TAG, categorySlug);
         if (category == null) {
             return Rets.FAIL;
@@ -136,7 +136,7 @@ public class ArticleApiController extends ApiControllerBase {
     public Ret listByFlag(@ApiPara("文章标识") @NotEmpty String flag
             , @ApiPara(value = "是否必须要图片", notes = "true 必须有图片，false 必须无图片") Boolean hasThumbnail
             , @ApiPara("排序方式") String orderBy
-            , @ApiPara("查询数量") @DefaultValue("10") int count) {
+            , @ApiPara("查询数量") @DefaultValue("20") int count) {
 
         Columns columns = Columns.create("flag", flag);
         if (hasThumbnail != null) {
@@ -165,7 +165,7 @@ public class ArticleApiController extends ApiControllerBase {
     @ApiResp(field = "page", notes = "文章分页数据", dataType = Page.class, genericTypes = Article.class)
     public Ret search(@ApiPara("关键词") String keyword
             , @ApiPara("分页页码") @DefaultValue("1") int pageNumber
-            , @ApiPara("每页数量") @DefaultValue("10") int pageSize) {
+            , @ApiPara("每页数量") @DefaultValue("20") int pageSize) {
         Page<Article> dataPage = StrUtil.isNotBlank(keyword)
                 ? articleService.search(keyword, pageNumber, pageSize)
                 : null;

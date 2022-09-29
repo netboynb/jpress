@@ -104,7 +104,7 @@ public class _UserController extends AdminControllerBase {
     @AdminMenu(text = "用户标签", groupId = JPressConsts.SYSTEM_MENU_USER, order = 1)
     public void tag() {
 
-        Page<UserTag> page = userTagService.paginateByColumns(getPagePara(), 10, Columns.EMPTY, "id desc");
+        Page<UserTag> page = userTagService.paginateByColumns(getPagePara(), 20, Columns.EMPTY, "id desc");
         setAttr("page", page);
 
         setAttr("tag", userTagService.findById(getPara()));

@@ -46,7 +46,7 @@ public class ProductCommentPageDirective extends JbootDirectiveBase {
         TemplateControllerBase controller = (TemplateControllerBase) JbootControllerContext.get();
 
         int page = controller.getPageNumber();
-        int pageSize = getParaToInt("pageSize", scope, 10);
+        int pageSize = getParaToInt("pageSize", scope, 20);
 
         Product product = controller.getAttr("product");
         if (product != null) {

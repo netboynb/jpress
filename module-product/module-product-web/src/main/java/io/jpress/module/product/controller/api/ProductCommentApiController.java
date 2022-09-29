@@ -48,7 +48,7 @@ public class ProductCommentApiController extends ApiControllerBase {
     @ApiOper("分页查询谋个产品的评论")
     public Ret paginateByProductId(@ApiPara("产品ID") @NotNull Long productId
             , @ApiPara("分页页码") @DefaultValue("1") int pageNumber
-            , @ApiPara("每页数据量") @DefaultValue("10") int pageSize) {
+            , @ApiPara("每页数据量") @DefaultValue("20") int pageSize) {
         return Ret.ok().set("page", commentService.paginateByProductIdInNormal(pageNumber, pageSize, productId));
     }
 

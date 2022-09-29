@@ -51,7 +51,7 @@ public class ArticleCommentApiController extends ApiControllerBase {
     @ApiResp(field = "page", notes = "文章评论分页数据", dataType = Page.class, genericTypes = ArticleComment.class)
     public Ret paginateByArticleId(@ApiPara("文章ID") @NotNull Long articleId
             , @ApiPara("分页页码") @DefaultValue("1") int pageNumber
-            , @ApiPara("每页数据量") @DefaultValue("10") int pageSize) {
+            , @ApiPara("每页数据量") @DefaultValue("20") int pageSize) {
         return Ret.ok().set("page", commentService.paginateByArticleIdInNormal(pageNumber, pageSize, articleId));
     }
 

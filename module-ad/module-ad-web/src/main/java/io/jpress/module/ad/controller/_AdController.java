@@ -37,7 +37,7 @@ public class _AdController extends AdminControllerBase {
 
     @AdminMenu(text = "管理", groupId = "ad")
     public void index() {
-        Page<Ad> entries=service.paginate(getPagePara(), 10);
+        Page<Ad> entries=service.paginate(getPagePara(), 20);
         setAttr("page", entries);
         render("ad/ad_list.html");
     }

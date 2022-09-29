@@ -41,7 +41,7 @@ public class ProductTagsDirective extends JbootDirectiveBase {
     public void onRender(Env env, Scope scope, Writer writer) {
 
         String orderBy = getPara("orderBy", scope, "id desc");
-        int count = getParaToInt("count", scope, 10);
+        int count = getParaToInt("count", scope, 20);
 
         List<ProductCategory> categories = categoryService.findListByType(ProductCategory.TYPE_TAG, orderBy, count);
         if (categories == null || categories.isEmpty()) {

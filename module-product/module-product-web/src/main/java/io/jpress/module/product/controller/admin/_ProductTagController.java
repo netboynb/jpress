@@ -45,7 +45,7 @@ public class _ProductTagController extends AdminControllerBase {
 
     @AdminMenu(text = "标签", groupId = "product", order = 3)
     public void index() {
-        Page<ProductCategory> page = productCategoryService.paginateByType(getPagePara(), 10, ProductCategory.TYPE_TAG);
+        Page<ProductCategory> page = productCategoryService.paginateByType(getPagePara(), 20, ProductCategory.TYPE_TAG);
         setAttr("page", page);
 
         int id = getParaToInt(0, 0);

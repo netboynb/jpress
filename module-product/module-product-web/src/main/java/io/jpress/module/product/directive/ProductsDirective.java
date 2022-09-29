@@ -45,7 +45,7 @@ public class ProductsDirective extends JbootDirectiveBase {
         String style = getPara("style", scope);
         Boolean hasThumbnail = getParaToBool("hasThumbnail", scope);
         String orderBy = getPara("orderBy", scope, "id desc");
-        int count = getParaToInt("count", scope, 10);
+        int count = getParaToInt("count", scope, 20);
 
 
         Columns columns = Columns.create("flag", flag);

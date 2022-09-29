@@ -70,8 +70,8 @@ public class _ProductController extends AdminControllerBase {
         Long categoryId = getParaToLong("categoryId");
 
         Page<Product> page = status == null
-                ? productService._paginateWithoutTrash(getPagePara(), 10, title, categoryId)
-                : productService._paginateByStatus(getPagePara(), 10, title, categoryId, status);
+                ? productService._paginateWithoutTrash(getPagePara(), 20, title, categoryId)
+                : productService._paginateByStatus(getPagePara(), 20, title, categoryId, status);
 
         setAttr("page", page);
 
