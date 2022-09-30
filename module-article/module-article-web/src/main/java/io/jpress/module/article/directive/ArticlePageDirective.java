@@ -21,6 +21,8 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.template.Env;
 import com.jfinal.template.io.Writer;
 import com.jfinal.template.stat.Scope;
+import io.jboot.db.model.Column;
+import io.jboot.db.model.Columns;
 import io.jboot.web.controller.JbootControllerContext;
 import io.jboot.web.directive.annotation.JFinalDirective;
 import io.jboot.web.directive.base.JbootDirectiveBase;
@@ -49,6 +51,10 @@ public class ArticlePageDirective extends JbootDirectiveBase {
         int page = controller.getPageNumber();
         int pageSize = getParaToInt("pageSize", scope, 20);
         String orderBy = getPara("orderBy", scope, "id desc");
+        Boolean withLeadNews = getParaToBool("withLeadNews",scope,false);
+        Boolean withRecmd = getParaToBool("withRecommend",scope,false);
+        Boolean withTop = getParaToBool("withTop",scope,false);
+        Boolean withHot = getParaToBool("withHot",scope,false);
 
         // 可以指定当前的分类ID
         Long categoryId = getParaToLong("categoryId", scope, 0L);
@@ -59,7 +65,7 @@ public class ArticlePageDirective extends JbootDirectiveBase {
         }
 
         Page<Article> articlePage = categoryId == 0
-                ? service.paginateInNormal(page, pageSize, orderBy)
+                ? service.paginateInHots(page,pageSize,orderBy,withLeadNews,withRecmd,withHot,withTop)
                 : service.paginateByCategoryIdInNormal(page, pageSize, categoryId, orderBy);
 
         scope.setGlobal("articlePage", articlePage);

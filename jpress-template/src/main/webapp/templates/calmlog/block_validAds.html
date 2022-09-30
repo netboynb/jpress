@@ -1,26 +1,35 @@
 
 <!--name: 轮播广告-->
 <!--icon: bi bi-badge-ad-fill-->
+<style>
+    .test2 li{
+        width: 30px;
+        height: 5px;
+        border: 1px solid transparent;
+        background-color: #717171;
+        border-radius: 2px;
+
+    }
+</style>
 
 
 <div class="cl-right">
-    <div id="validAdsSlides" class="carousel slide" data-ride="carousel"  data-ride="carousel" data-interval="4000">
-
-        <ol class="carousel-indicators">
-            #for(slide : validAds)
-            <li data-target="#validAdsSlides" data-slide-to="0"
-                class="#(for.index == 0 ? 'active' : '')"></li>
-            #end
-        </ol>
-        <div class="carousel-inner ">
-            #validAds(count=3)
-            #for(slide : validAds)
-            <div class="carousel-item #(for.index == 0 ? 'active' : '')">
-                <a href="#(slide.adTarget ??)" target="_blank"><img class="d-block w-100" src="#(slide.adImg ??)"></a>
+    <div id="validAdsSlides" class="carousel slide" data-ride="carousel"  data-ride="carousel" data-interval="2000">
+        #validAds(count=6)
+            <ol class="carousel-indicators test2">
+                #for(slide : validAds)
+                <li data-target="#validAdsSlides" data-slide-to="0"
+                    class="#(for.index == 0 ? 'active' : '')"></li>
+                #end
+            </ol>
+            <div class="carousel-inner">
+                #for(slide : validAds)
+                <div class="carousel-item #(for.index == 0 ? 'active' : '')">
+                    <a href="#(slide.adTarget ??)" target="_blank"><img class="d-block w-100" src="#(slide.adImg ??)"></a>
+                </div>
+                #end
             </div>
-            #end
-            #end
-        </div>
+        #end
         <a class="carousel-control-prev" href="#validAdsSlides" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">上一个</span>

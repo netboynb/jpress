@@ -130,6 +130,12 @@ public interface ArticleService extends JbootServiceJoiner {
 
     Page<Article> paginateInNormal(int page, int pagesize, String orderBy);
 
+    Page<Article> paginateInHots(int page, int pagesize, String orderBy,
+            Boolean withLeadNews,
+            Boolean withRecommend,
+            Boolean withHot,
+            Boolean withTop);
+
     Page<Article> paginateByCategoryIdInNormal(int page, int pagesize, long categoryId, String orderBy);
 
     void doIncArticleViewCount(long articleId);

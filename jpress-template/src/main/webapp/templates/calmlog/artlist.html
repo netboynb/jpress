@@ -5,7 +5,7 @@
 #define content()
 <div class="col-md-9 cl-left">
 
-    #articlePage()
+    #articlePage(withLeadNews=true)
     #for(article : articlePage.list)
     <div class="cl-card">
         <a class="card-link" href="#(article.url)">

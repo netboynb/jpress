@@ -21,6 +21,7 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.Record;
+import com.jfinal.template.stat.Scope;
 import io.jboot.aop.annotation.Bean;
 import io.jboot.components.cache.annotation.CacheEvict;
 import io.jboot.components.cache.annotation.Cacheable;
@@ -131,12 +132,31 @@ public class ArticleServiceProvider extends JPressServiceBase<Article> implement
     @Cacheable(name = "articles")
     public Page<Article> paginateInNormal(int page, int pagesize, String orderBy) {
         orderBy = StrUtil.obtainDefaultIfBlank(orderBy, DEFAULT_ORDER_BY);
+
         Columns columns = new Columns();
         columns.eq("status", Article.STATUS_NORMAL);
         Page<Article> dataPage = DAO.paginateByColumns(page, pagesize, columns, orderBy);
         return joinUserInfo(dataPage);
     }
 
+    @Override
+    @Cacheable(name = "articles")
+    public Page<Article> paginateInHots(int page, int pagesize, String orderBy,
+            Boolean withLeadNews,
+            Boolean withRecommend,
+            Boolean withHot,
+            Boolean withTop) {
+        orderBy = StrUtil.obtainDefaultIfBlank(orderBy, DEFAULT_ORDER_BY);
+        Columns columns = new Columns();
+
+        if(withLeadNews)
+            columns.eq("with_lead_news",1);
+
+        columns.eq("status", Article.STATUS_NORMAL);
+
+        Page<Article> dataPage = DAO.paginateByColumns(page, pagesize, columns, orderBy);
+        return joinUserInfo(dataPage);
+    }
 
     @Override
     @Cacheable(name = "articles")
