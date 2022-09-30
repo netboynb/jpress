@@ -34,11 +34,16 @@
                 <!-- 头像信息 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="javascript:;" style="display: flex;align-items: center">
-                        <img src="#(USER.avatar ?? 'img/avatar.png')" class="img-circle" style="width:45px;height: 45px">
+                        <img src="#(USER.avatar ?? 'img/avatar.png')" class="img-circle" style="width:30px;height:30px">
                         <i class="fas fa-sign-out-alt"></i>
+                        #if(USER == null)
+                        Login
+                        #end
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
+
+                        #if(USER)
                         <a href="#(CPATH)/ucenter" class="dropdown-item">
                             <i class="fas fa-sign-out-alt"></i> 用户中心
                         </a>
@@ -47,7 +52,6 @@
                             <i class="fas fa-sign-out-alt"></i> 个人信息
                         </a>
                         <div class="dropdown-divider"></div>
-                        #if(USER)
                         <a href="#(CPATH)/ucenter/logout" class="dropdown-item">
                             <i class="fas fa-sign-out-alt"></i> 退出
                         </a>

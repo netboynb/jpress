@@ -78,6 +78,17 @@
             <version>5.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.jpress</groupId>
+            <artifactId>module-ad-web</artifactId>
+            <version>5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jpress</groupId>
+            <artifactId>module-ad-service-provider</artifactId>
+            <version>5.0</version>
+        </dependency>
 
         <dependency>
             <groupId>io.jpress</groupId>
@@ -196,6 +207,9 @@
                                 <resource>
                                     <directory>${basedir}/../module-form/module-form-web/src/main/webapp
                                     </directory>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/../module-ad/module-ad-web/src/main/webapp</directory>
                                 </resource>
                                 <resource>
                                     <directory>${basedir}/../module-product/module-product-web/src/main/webapp</directory>

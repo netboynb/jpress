@@ -1,0 +1,20 @@
+
+<!--name: 商品列表-->
+<!--icon: bi bi-bag-check-fill-->
+<div class="right-card #blockOption('主class:textarea')" style="#blockOption('主style:textarea' )">
+    <div class="right-card-main">
+        <div class="right-card-title">#blockOption("标题","最新商品")</div>
+        <ul class="right-recommended-list">
+            #products(hasThumbnail=true,count=blockOption("商品数量",3))
+            #for(prd : products)
+            <li>
+                <a href="#(prd.url ??)">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    #(prd.title ??)
+                </a>
+            </li>
+            #end
+            #end
+        </ul>
+    </div>
+</div>
