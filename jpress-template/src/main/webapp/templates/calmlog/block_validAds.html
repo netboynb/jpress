@@ -3,16 +3,16 @@
 <!--icon: bi bi-badge-ad-fill-->
 
 
-<div class="right-card">
+<div class="cl-right">
     <div id="validAdsSlides" class="carousel slide" data-ride="carousel"  data-ride="carousel" data-interval="4000">
 
         <ol class="carousel-indicators">
             #for(slide : validAds)
-            <li data-target="#carouselExampleIndicators" data-slide-to="0"
+            <li data-target="#validAdsSlides" data-slide-to="0"
                 class="#(for.index == 0 ? 'active' : '')"></li>
             #end
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner ">
             #validAds(count=3)
             #for(slide : validAds)
             <div class="carousel-item #(for.index == 0 ? 'active' : '')">
