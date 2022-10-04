@@ -5,6 +5,19 @@
 #define content()
 <div class="col-md-9 cl-left">
 
+    #articles(hasThumbnail=true,count=4,withRecommend=true,withLeadNews=true)
+    <div class="recommend-bottom">
+        #for(article : articles)
+        <div class="recommend-item">
+            <a href="#(article.url)" target="_blank">
+                <img src="#(article.showImage ?? 'img/default-img.jpg')" class="img-fluid" alt="">
+            </a>
+            <p class="recommend-item-bottom">#(article.title)</p>
+        </div>
+        #end
+    </div>
+    #end
+
     #articlePage(withLeadNews=true)
     #for(article : articlePage.list)
     <div class="cl-card">
@@ -25,10 +38,6 @@
         </a>
     </div>
     #end
-
-
-
-
 
     #articlePaginate(firstGotoIndex=true)
     <nav aria-label="">
