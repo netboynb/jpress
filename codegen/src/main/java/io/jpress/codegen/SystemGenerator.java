@@ -50,7 +50,7 @@ public class SystemGenerator {
 
         JbootApplication.setBootArg("jboot.datasource.url", "jdbc:mysql://192.168.3.2:3306/jpress");
         JbootApplication.setBootArg("jboot.datasource.user", "root");
-        JbootApplication.setBootArg("jboot.datasource.password", "123456");
+        JbootApplication.setBootArg("jboot.datasource.password", "123?!456");
 
         String modelPackage = "io.jpress.model";
 
